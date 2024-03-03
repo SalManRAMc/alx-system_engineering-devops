@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+#read file ??
+
+file="etc/passwd" # variable assignment.. 3ady
+while IFS= read -r line; do #IFS (Internal Field Separator) ensures that whitespaces are preserved in each line
+    echo "$line" | cut -d ':' -f1,3,6 
+done < "$file"
+unset IFS
+#-r prevents backslashes from being treated as escape characters in read
+# overall loop reads each line in passwd and extracts fields in the file separated by  colons
+#-f1,3,6 tells cut which fields to extract, -d tells cut what the delimeter separating the fields
+#looks like
+#input for the loop is redirected from the file
+# The < symbol is used for input redirection.
+# It allows you to read input from a file instead of the keyboard.
+# For example:
+#
+# while read line; do
+#    echo "$line"
+# done < input.txt
+#
+# This reads each line from the input.txt file and processes it within the loop.
