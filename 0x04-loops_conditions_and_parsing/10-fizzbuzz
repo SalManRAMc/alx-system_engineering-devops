@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+
+for ((i=1; i <= 100; i++))
+do
+    if [ $((i % 3)) == 0 ] && [ $((i % 5)) == 0 ]; # if conditions are ANDed, they are each grouped separately
+    then
+        echo "Fizzbuzz"
+    elif [ $((i % 3)) == 0 ]; # $(()) is where arithmetic operations are carried out
+    then
+        echo "Fizz"
+    elif [ $((i % 5)) == 0 ];
+    then
+        echo "Buzz"
+    else
+        echo "$i"
+    fi
+done
